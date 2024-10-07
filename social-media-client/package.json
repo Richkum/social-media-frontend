@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite build && vite preview --host",
+    "start": "vite build && vite preview --port $PORT --strictPort",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "dev": "vite",
     "build": "vite build",
