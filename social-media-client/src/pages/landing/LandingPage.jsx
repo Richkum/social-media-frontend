@@ -5,9 +5,9 @@ import Footer from "../../components/landingPage/footer/Footer.jsx";
 const LandingPage = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <MainContent />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

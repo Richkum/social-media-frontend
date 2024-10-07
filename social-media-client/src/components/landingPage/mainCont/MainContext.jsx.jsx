@@ -104,7 +104,7 @@ const MainContent = () => {
             <StepCard
               number={4}
               title="Engage and Grow"
-              description="Like, comment, and share to build your community"
+              description="Like and share a comment to build your community"
             />
           </div>
         </div>
@@ -141,7 +141,7 @@ const MainContent = () => {
             Ready to Get Started?
           </h3>
           <p className="text-lg md:text-xl text-gray-600 mb-8">
-            Join thousands of others and start connecting today!
+            Join many others and start connecting today!
           </p>
           <Link to={"/register"}>
             <motion.button

@@ -41,7 +41,7 @@ function LoginPage() {
       // Dispatch the loginSuccess action to store the user info in Redux
       dispatch(login({ user: responseData.user, token: responseData.token }));
 
-      navigate("/dashboard");
+      navigate("/home");
     } catch (error) {
       setServerError(error.message);
     } finally {

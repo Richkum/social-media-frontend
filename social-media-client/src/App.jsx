@@ -4,8 +4,11 @@ import RegistrationPage from "./pages/register/Register";
 import LoginPage from "./pages/login/Login";
 import ResetPassword from "./pages/resert-password/ResetPass";
 import Dashboard from "./pages/dashboard/Dashboard";
-// import FeedsPage from "./pages/home/FeedsPage";
-// import ProtectedRoute from "./context/protectedRoute";
+import FeedsPage from "./pages/home/FeedsPage";
+import ProfilePage from "./pages/profile/ProfilePage";
+import ProtectedRoute from "./context/protectedRoute";
+import NewPostComponent from "./components/post/NewPost";
+import UserProfilePage from "./pages/user-profile/UserProfile";
 
 import "./App.css";
 
@@ -17,10 +20,13 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        {/* <ProtectedRoute> */}
-        <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/home" element={<FeedsPage />} /> */}
-        {/* </ProtectedRoute> */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/home" element={<FeedsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/post" element={<NewPostComponent />} />
+          <Route path="/user-profile" element={<UserProfilePage />} />
+        </Route>
       </Routes>
     </Router>
   );
