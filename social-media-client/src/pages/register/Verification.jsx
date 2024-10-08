@@ -62,10 +62,10 @@ function VerificationCode({ isOpen, onRequestClose, onSuccess }) {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Verification Modal"
-      className="modal-content"
+      className="modal-content fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       overlayClassName="modal-overlay"
     >
-      <div className="p-4">
+      <div className="p-4 bg-white rounded-lg">
         <h2 className="text-2xl font-bold mb-4">Enter Verification Code</h2>
         <p className="mb-4 text-gray-600">
           We've sent a 6-digit verification code to your email. Please enter it
