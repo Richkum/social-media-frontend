@@ -6,7 +6,7 @@ import VerificationCodeEntry from "../../components/resetPassword/VCodeEntry";
 import NewPasswordEntry from "../../components/resetPassword/NewPassEntry";
 import { FaSpinner } from "react-icons/fa";
 
-const BASE_URL = "http://localhost:5000/api/auth";
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ResetPassword = () => {
   const [step, setStep] = useState(1);
@@ -44,7 +44,7 @@ const ResetPassword = () => {
       let response;
       switch (step) {
         case 1:
-          response = await axios.post(`${BASE_URL}/forgot-password`, {
+          response = await axios.post(`${API_URL}/forgot-password`, {
             email: data.email,
           });
           if (response.data.success) {
@@ -56,7 +56,7 @@ const ResetPassword = () => {
           const verificationCode = Object.values(data)
             .filter((value) => typeof value === "string")
             .join("");
-          response = await axios.post(`${BASE_URL}/verify-verification-code`, {
+          response = await axios.post(`${API_URL}/verify-verification-code`, {
             email,
             verificationCode,
           });
@@ -65,7 +65,7 @@ const ResetPassword = () => {
           }
           break;
         case 3:
-          response = await axios.post(`${BASE_URL}/reset-password`, {
+          response = await axios.post(`${API_URL}/reset-password`, {
             email,
             newPassword: data.newPassword,
             confirmPassword: data.confirmPassword,

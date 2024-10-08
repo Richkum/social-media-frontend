@@ -7,6 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 Modal.setAppElement("#root");
 
 function VerificationCode({ isOpen, onRequestClose, onSuccess }) {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const navigate = useNavigate();
 
   const {
@@ -25,14 +27,11 @@ function VerificationCode({ isOpen, onRequestClose, onSuccess }) {
     const verificationCode = Object.values(data).join("");
 
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/auth/verify-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ code: verificationCode }),
-        }
-      );
+      const response = await fetch(`${API_URL}/api/auth/verify-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: verificationCode }),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();

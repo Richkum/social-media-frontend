@@ -493,8 +493,13 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const UserProfilePage = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
+  const token = useSelector((state) => state.auth.token);
+
   const { userId } = useParams();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -511,7 +516,7 @@ const UserProfilePage = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/profile/${userId}`
+          `${API_URL}/api/users/profile/${userId}`
         );
         setUser(response.data);
         console.log(response.data);
@@ -540,7 +545,7 @@ const UserProfilePage = () => {
 
   const handleFollow = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/users/${userId}/follow`);
+      await axios.post(`${API_URL}/api/users/${userId}/follow`);
       setIsFollowing(!isFollowing);
     } catch (err) {
       console.error("Failed to follow/unfollow user", err);
@@ -586,11 +591,20 @@ const UserProfilePage = () => {
     const newComment = newComments[postId];
     if (newComment) {
       try {
-        await axios.post(`http://localhost:5000/api/posts/${postId}/comments`, {
-          content: newComment,
-        });
+        await axios.post(
+          `${API_URL}/api/posts/${postId}/comment`,
+          {
+            content: newComment,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const updatedUserResponse = await axios.get(
-          `http://localhost:5000/api/users/profile/${userId}`
+          `${API_URL}/api/users/profile/${userId}`
         );
         setUser(updatedUserResponse.data);
         setNewComments((prev) => ({ ...prev, [postId]: "" }));

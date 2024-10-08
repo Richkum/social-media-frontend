@@ -461,6 +461,8 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 const UserProfilePage = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
@@ -477,15 +479,12 @@ const UserProfilePage = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/users/my-profile",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.get(`${API_URL}/api/users/my-profile`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       const data = response.data;
       console.log(data);
 
@@ -541,7 +540,7 @@ const UserProfilePage = () => {
 
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/users/update-profile",
+        `${API_URL}/api/users/update-profile`,
         editedFields,
         {
           headers: {

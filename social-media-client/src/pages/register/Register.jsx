@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import VerificationCode from "./Verification";
 
 const RegistrationPage = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const [showPassword, setShowPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -45,7 +47,7 @@ const RegistrationPage = () => {
         "0"
       )}-${data.birthDay.padStart(2, "0")}`;
 
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
