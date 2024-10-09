@@ -23,7 +23,7 @@ function App() {
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/home" element={<FeedsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          {/* <Route path="/user-profile/:userId" element={<UserProfilePage />} /> */}
+          <Route path="/user-profile/:userId" element={<UserProfilePage />} />
         </Route>
       </Routes>
     </Router>
