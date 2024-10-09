@@ -623,6 +623,8 @@ import { logout } from "../../context/authContex";
 import { useDispatch } from "react-redux";
 
 const FeedsPage = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -670,7 +672,7 @@ const FeedsPage = () => {
     setError(null);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/posts/all-posts?page=${page}`,
+        `${API_URL}/api/posts/all-posts?page=${page}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -716,7 +718,7 @@ const FeedsPage = () => {
   const handleLike = async (postId) => {
     try {
       await axios.post(
-        `http://localhost:5000/api/posts/${postId}/like`,
+        `${API_URL}/api/posts/${postId}/like`,
         {},
         {
           headers: {
@@ -749,7 +751,7 @@ const FeedsPage = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/comment`,
+        `${API_URL}/api/posts/${postId}/comment`,
         { content: comment },
         {
           headers: {
@@ -787,7 +789,7 @@ const FeedsPage = () => {
     if (searchQuery.trim() !== "") {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/search-users?query=${searchQuery}`,
+          `${API_URL}/api/users/search-users?query=${searchQuery}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
