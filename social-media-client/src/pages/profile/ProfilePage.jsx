@@ -459,6 +459,7 @@ import {
 } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import NewPostComponent from "../../components/post/NewPost";
 
 const UserProfilePage = () => {
   const API_URL = import.meta.env.VITE_API_BASE_URL;
@@ -693,6 +694,8 @@ const UserProfilePage = () => {
                 <span className="text-sm text-gray-600">Total Posts</span>
               </div>
             </div>
+
+            {/* <NewPostComponent /> */}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>

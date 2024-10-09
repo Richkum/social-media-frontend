@@ -5,10 +5,13 @@ import EmailEntry from "../../components/resetPassword/EmailEntry";
 import VerificationCodeEntry from "../../components/resetPassword/VCodeEntry";
 import NewPasswordEntry from "../../components/resetPassword/NewPassEntry";
 import { FaSpinner } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ResetPassword = () => {
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -74,6 +77,7 @@ const ResetPassword = () => {
             setServerMessage(
               "Password reset successfully. You can now log in with your new password."
             );
+            navigate("/login");
           }
           break;
       }

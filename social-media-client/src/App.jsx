@@ -5,9 +5,9 @@ import LoginPage from "./pages/login/Login";
 import ResetPassword from "./pages/resert-password/ResetPass";
 // import Dashboard from "./pages/dashboard/Dashboard";
 import FeedsPage from "./pages/home/FeedsPage";
-// import ProfilePage from "./pages/profile/ProfilePage";
+import ProfilePage from "./pages/profile/ProfilePage";
 import ProtectedRoute from "./context/protectedRoute";
-// import UserProfilePage from "./pages/user-profile/UserProfile";
+import UserProfilePage from "./pages/user-profile/UserProfile";
 
 import "./App.css";
 
@@ -22,7 +22,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/home" element={<FeedsPage />} />
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          <Route path="/profile" element={<ProfilePage />} />
           {/* <Route path="/user-profile/:userId" element={<UserProfilePage />} /> */}
         </Route>
       </Routes>
