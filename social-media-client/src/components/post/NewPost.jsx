@@ -199,6 +199,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const NewPostComponent = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
   const token = useSelector((state) => state.auth.token);
 
   const [postText, setPostText] = useState("");
@@ -262,7 +263,7 @@ const NewPostComponent = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/posts/create-post",
+        `${API_URL}/api/posts/create-post`,
         formData,
         {
           headers: {
