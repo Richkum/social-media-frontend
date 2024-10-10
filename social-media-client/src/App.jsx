@@ -3,7 +3,7 @@ import LandingPage from "./pages/landing/LandingPage";
 import RegistrationPage from "./pages/register/Register";
 import LoginPage from "./pages/login/Login";
 import ResetPassword from "./pages/resert-password/ResetPass";
-// import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import FeedsPage from "./pages/home/FeedsPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import ProtectedRoute from "./context/protectedRoute";
