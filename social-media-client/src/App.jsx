@@ -8,6 +8,7 @@ import FeedsPage from "./pages/home/FeedsPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import ProtectedRoute from "./context/protectedRoute";
 import UserProfilePage from "./pages/user-profile/UserProfile";
+import NotificationPage from "./pages/notifications/Notification";
 
 import "./App.css";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/home" element={<FeedsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/user-profile/:userId" element={<UserProfilePage />} />
+          <Route path="/notifications" element={<NotificationPage />} />
         </Route>
       </Routes>
     </Router>
