@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NotificationPage() {
+function FriendsPage() {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen">
@@ -22,4 +22,4 @@ function NotificationPage() {
   );
 }
 
-export default NotificationPage;
+export default FriendsPage;

@@ -27,9 +27,9 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
     { name: "Home", icon: HomeIcon },
     { name: "Profile", icon: UserCircleIcon },
     { name: "Notifications", icon: BellIcon },
-    { name: "Bookmarks", icon: BookmarkIcon },
+    // { name: "Bookmarks", icon: BookmarkIcon },
     { name: "Friends", icon: UsersIcon },
-    { name: "Settings", icon: CogIcon },
+    { name: "Dashboard", icon: CogIcon },
   ];
 
   return (
