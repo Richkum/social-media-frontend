@@ -1706,7 +1706,6 @@ const UserProfilePage = () => {
           )}
         </div>
 
-        {/* ... (keep the submit status message as it is) */}
         {submitStatus && (
           <div
             className={`mt-4 p-4 rounded-md ${
@@ -1719,8 +1718,6 @@ const UserProfilePage = () => {
           </div>
         )}
       </div>
-
-      {/* ... (keep the followers and following modals as they are) */}
 
       {showFollowersModal && (
         <FollowModal
