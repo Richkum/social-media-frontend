@@ -48,5 +48,9 @@ const authSlice = createSlice({
   },
 });
 
+export const getUserId = (state) => {
+  return state.user._id;
+};
+
 export const { login, logout, checkTokenValidity } = authSlice.actions;
 export default authSlice.reducer;

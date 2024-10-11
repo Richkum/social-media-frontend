@@ -9,12 +9,13 @@ import {
   BellIcon,
   UserCircleIcon,
   CogIcon,
-  BookmarkIcon,
   UsersIcon,
   LogoutIcon,
 } from "@heroicons/react/outline";
+import LogoutModal from "../logout/logoutModal";
 
 function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -70,13 +71,19 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
           <div className="mt-auto">
             <button
               className="flex items-center p-2 text-red-600 hover:bg-red-50 rounded-lg transition duration-150 ease-in-out"
-              onClick={handleLogout}
+              onClick={() => setIsModalOpen(true)}
             >
               <LogoutIcon className="h-6 w-6 mr-3" />
               Logout
             </button>
           </div>
         </div>
+        {isModalOpen && (
+          <LogoutModal
+            onConfirm={handleLogout}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
       </div>
     </>
   );

@@ -807,7 +807,7 @@ const UserProfilePage = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 p-4 w-full md:w-2/3 mx-auto">
           <h2 className="text-xl font-semibold text-gray-800">Posts</h2>
           {user.posts.length === 0 ? (
             <div className="bg-white shadow-lg rounded-lg overflow-hidden p-4">

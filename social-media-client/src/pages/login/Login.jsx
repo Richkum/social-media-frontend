@@ -132,7 +132,7 @@ function LoginPage() {
 
             {serverError && (
               <p className="mt-2 text-sm text-red-600 text-center">
-                {serverError}
+                {serverError || "Failed to load resource"}
               </p>
             )}
           </form>

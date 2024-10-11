@@ -296,7 +296,7 @@ const NewPostComponent = () => {
   };
 
   return (
-    <div className=" mx-auto bg-white rounded-lg shadow-md p-6 mb-8">
+    <div className=" mx-auto bg-white rounded-lg shadow-md mb-8 p-4 w-full md:w-2/3">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="relative">
           <textarea

@@ -10,6 +10,7 @@ import ProtectedRoute from "./context/protectedRoute";
 import UserProfilePage from "./pages/user-profile/UserProfile";
 import NotificationPage from "./pages/notifications/Notification";
 import FriendsPage from "./pages/friends/FriendsPage";
+import TermsAndConditions from "./pages/terms/TermsAndService";
 
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/home" element={<FeedsPage />} />

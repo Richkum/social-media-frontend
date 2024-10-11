@@ -302,7 +302,7 @@ const RegistrationPage = () => {
                       </select>
                     )}
                   />
-                  <Controller
+                  {/* <Controller
                     name="birthYear"
                     control={control}
                     rules={{ required: "Year is required" }}
@@ -315,6 +315,27 @@ const RegistrationPage = () => {
                         {Array.from(
                           { length: 100 },
                           (_, i) => new Date().getFullYear() - i
+                        ).map((year) => (
+                          <option key={year} value={year.toString()}>
+                            {year}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+                  /> */}
+                  <Controller
+                    name="birthYear"
+                    control={control}
+                    rules={{ required: "Year is required" }}
+                    render={({ field }) => (
+                      <select
+                        {...field}
+                        className="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-skyBlue-500 focus:border-skyBlue-500 sm:text-sm"
+                      >
+                        <option value="">Year</option>
+                        {Array.from(
+                          { length: 2008 - 1900 + 1 },
+                          (_, i) => 2008 - i
                         ).map((year) => (
                           <option key={year} value={year.toString()}>
                             {year}
@@ -344,12 +365,12 @@ const RegistrationPage = () => {
                   className="ml-2 block text-sm text-gray-900"
                 >
                   I agree to the{" "}
-                  <a
-                    href="#"
-                    className="text-skyBlue-600 hover:text-skyBlue-500"
+                  <Link
+                    to={"/terms-and-conditions"}
+                    className="text-skyBlue-600 hover:text-skyBlue-700"
                   >
                     Terms and Conditions
-                  </a>
+                  </Link>
                 </label>
               </div>
 
