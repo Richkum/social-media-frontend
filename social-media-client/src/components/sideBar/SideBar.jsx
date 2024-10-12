@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { logout } from "../../context/authContex";
 import { useDispatch } from "react-redux";
@@ -12,12 +12,13 @@ import {
   UsersIcon,
   LogoutIcon,
 } from "@heroicons/react/outline";
-import LogoutModal from "../logout/logoutModal";
+import LogoutModal from "../navbar/logoutModal";
 
 function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation(); // Get the current path
 
   const handleLogout = () => {
     dispatch(logout());
@@ -25,12 +26,11 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   };
 
   const quickLinks = [
-    { name: "Home", icon: HomeIcon },
-    { name: "Profile", icon: UserCircleIcon },
-    { name: "Notifications", icon: BellIcon },
-    // { name: "Bookmarks", icon: BookmarkIcon },
-    { name: "Friends", icon: UsersIcon },
-    { name: "Dashboard", icon: CogIcon },
+    { name: "Home", icon: HomeIcon, path: "/home" },
+    { name: "Profile", icon: UserCircleIcon, path: "/profile" },
+    { name: "Notifications", icon: BellIcon, path: "/notifications" },
+    { name: "Friends", icon: UsersIcon, path: "/friends" },
+    { name: "Dashboard", icon: CogIcon, path: "/dashboard" },
   ];
 
   return (
@@ -58,10 +58,21 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={`/${link.name.toLowerCase()}`}
-                    className="flex items-center p-2 text-gray-700 hover:bg-blue-50 rounded-lg transition duration-150 ease-in-out"
+                    to={link.path}
+                    className={`flex items-center p-2 text-gray-700 rounded-lg transition duration-150 ease-in-out 
+                      ${
+                        location.pathname === link.path
+                          ? "bg-blue-400 text-white" // Active link style
+                          : "hover:bg-blue-50"
+                      }`}
                   >
-                    <link.icon className="h-6 w-6 mr-3 text-blue-500" />
+                    <link.icon
+                      className={`h-6 w-6 mr-3 ${
+                        location.pathname === link.path
+                          ? "text-white" // Active icon style
+                          : "text-blue-400"
+                      }`}
+                    />
                     {link.name}
                   </Link>
                 </li>
