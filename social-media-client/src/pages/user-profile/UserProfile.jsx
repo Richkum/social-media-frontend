@@ -123,7 +123,6 @@ const UserProfilePage = () => {
       }
     } catch (err) {
       console.error("Failed to follow/unfollow user", err);
-      // Revert changes if there's an error
       setIsFollowing(!isFollowing);
       setUser((prevUser) => ({
         ...prevUser,
