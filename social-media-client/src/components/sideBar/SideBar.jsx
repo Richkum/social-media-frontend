@@ -62,14 +62,14 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
                     className={`flex items-center p-2 text-gray-700 rounded-lg transition duration-150 ease-in-out 
                       ${
                         location.pathname === link.path
-                          ? "bg-blue-400 text-white" // Active link style
+                          ? "bg-blue-400 text-white"
                           : "hover:bg-blue-50"
                       }`}
                   >
                     <link.icon
                       className={`h-6 w-6 mr-3 ${
                         location.pathname === link.path
-                          ? "text-white" // Active icon style
+                          ? "text-white"
                           : "text-blue-400"
                       }`}
                     />
