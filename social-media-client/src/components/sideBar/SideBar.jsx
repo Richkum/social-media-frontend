@@ -18,7 +18,7 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation(); // Get the current path
+  const location = useLocation();
 
   const handleLogout = () => {
     dispatch(logout());
@@ -28,9 +28,9 @@ function SideBar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const quickLinks = [
     { name: "Home", icon: HomeIcon, path: "/home" },
     { name: "Profile", icon: UserCircleIcon, path: "/profile" },
-    { name: "Notifications", icon: BellIcon, path: "/notifications" },
+    // { name: "Notifications", icon: BellIcon, path: "/notifications" },
     { name: "Friends", icon: UsersIcon, path: "/friends" },
-    { name: "Dashboard", icon: CogIcon, path: "/dashboard" },
+    // { name: "Dashboard", icon: CogIcon, path: "/dashboard" },
   ];
 
   return (
